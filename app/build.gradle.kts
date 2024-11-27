@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "smsw.maah"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "smsw.maah"

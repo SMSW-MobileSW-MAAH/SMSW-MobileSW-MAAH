@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--semi bold-->
+    <style name="TextAppearance.Title">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">22pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale8</item>
+    </style>
+
+    <style name="TextAppearance.GreenButton">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">16pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.ConfirmButton">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">16pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="TextAppearance.DiaryTitlePlaceholder">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">22pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale6</item>
+    </style>
+
+    <style name="TextAppearance.DiaryTextPlaceholder">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">16pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale6</item>
+    </style>
+
+    <style name="TextAppearance.Calender">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">19pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale8</item>
+    </style>
+
+    <style name="TextAppearance.DialogText">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">18pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale8</item>
+    </style>
+
+    <style name="TextAppearance.DialogOkText">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">14pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.DialogNoText">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">14pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale8</item>
+    </style>
+
+    <style name="TextAppearance.DialogWarningText">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">12pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale3</item>
+    </style>
+
+    <style name="TextAppearance.body.semibold.01">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">16pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale8</item>
+    </style>
+
+    <style name="TextAppearance.body.semibold.02">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">14pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale8</item>
+    </style>
+
+    <style name="TextAppearance.body.semibold.03">
+        <item name="android:fontFamily">@font/pretendardsemibold</item>
+        <item name="android:textSize">14pt</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">@color/grayscale5</item>
+    </style>
+
+
+    <!--regular-->
+    <style name="TextAppearance.inputTitle">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/grayscale8</item>
+        <item name="android:textSize">12pt</item>
+    </style>
+
+    <style name="TextAppearance.inputPlaceholder">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/grayscale3</item>
+        <item name="android:textSize">16pt</item>
+    </style>
+
+    <style name="TextAppearance.reviewPlaceHolder">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/grayscale3</item>
+        <item name="android:textSize">13pt</item>
+    </style>
+
+    <style name="TextAppearance.navigationBar">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/grayscale6</item>
+        <item name="android:textSize">10pt</item>
+    </style>
+
+    <style name="TextAppearance.reviewTag">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">16pt</item>
+    </style>
+
+    <style name="TextAppearance.DiaryDate">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/grayscale8</item>
+        <item name="android:textSize">14pt</item>
+    </style>
+
+    <!--medium-->
+    <style name="TextAppearance.body.medium.01">
+        <item name="android:fontFamily">@font/pretendardmedium</item>
+        <item name="android:textColor">@color/grayscale8</item>
+        <item name="android:textSize">14pt</item>
+    </style>
+
+    <style name="TextAppearance.body.medium.02">
+        <item name="android:fontFamily">@font/pretendardmedium</item>
+        <item name="android:textColor">@color/grayscale8</item>
+        <item name="android:textSize">12pt</item>
+    </style>
+</resources>
