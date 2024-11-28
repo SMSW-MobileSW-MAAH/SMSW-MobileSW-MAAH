@@ -24,8 +24,8 @@
         android:id="@+id/diary_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/confirm_button"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
         android:text="제목"
         android:background="@null"
         android:inputType="text"
@@ -51,11 +51,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/diary_date_picker"
-        style="@style/Calender">
+        android:gravity="center"
+        android:text="2024.00.00"
+        style="@style/DiaryDate">
 
     </TextView>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/diary_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diary_date"
+        android:text="내용을 입력하세요"
+        style="@style/DiaryTextPlaceholder"
+        android:background="@null"
+        android:inputType="text"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp">
+
+    </EditText>
 
 
 
