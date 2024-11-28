@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="완료"
-        android:style="@style/TextAppearance.ConfirmButton">
+        style="@style/ConfirmButton">
 
     </TextView>
 
@@ -28,19 +28,38 @@
         android:layout_marginTop="16dp"
         android:text="제목"
         android:background="@null"
-        android:style="@style/TextAppearance.DiaryTitlePlaceholder">
+        android:inputType="text"
+        style="@style/DiaryTitlePlaceholder">
 
     </EditText>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:id="@+id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diary_title"
         android:background="@color/green"
         android:layout_marginTop="12dp">
 
     </View>
+
+    <TextView
+        android:layout_width="127dp"
+        android:layout_height="36dp"
+        android:id="@+id/diary_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/diary_date_picker"
+        style="@style/Calender">
+
+    </TextView>
+
+
+
+
 
 
 
