@@ -1,0 +1,25 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 다이얼로그 전체 흰색 배경 -->
+    <item>
+        <shape>
+            <solid android:color="@color/white" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- 왼쪽 버튼 배경 (취소 버튼 영역) -->
+    <item android:top="202dp" android:right="155dp">
+        <shape>
+            <solid android:color="@color/light_green" />
+            <corners android:bottomLeftRadius="16dp" />
+        </shape>
+    </item>
+
+    <!-- 오른쪽 버튼 배경 (확인 버튼 영역) -->
+    <item android:top="202dp" android:left="155dp">
+        <shape>
+            <solid android:color="@color/green" />
+            <corners android:bottomRightRadius="16dp" />
+        </shape>
+    </item>
+</layer-list>
