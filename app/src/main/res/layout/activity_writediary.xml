@@ -44,15 +44,38 @@
 
     </View>
 
-    <TextView
+    <View
         android:layout_width="127dp"
         android:layout_height="36dp"
-        android:id="@+id/diary_date"
+        android:id="@+id/diary_date_box"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:background="@drawable/diary_date_picker"
         android:layout_marginStart="20dp"
         android:layout_marginTop="18dp"
-        android:background="@drawable/diary_date_picker"
+        >
+
+    </View>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_date_fill"
+        android:id="@+id/diary_date_icon"
+        app:layout_constraintStart_toStartOf="@id/diary_date_box"
+        app:layout_constraintTop_toTopOf="@id/diary_date_box"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="6dp">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/diary_date_icon"
+        app:layout_constraintTop_toTopOf="@id/diary_date_box"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="7dp"
         android:gravity="center"
         android:text="2024.00.00"
         style="@style/DiaryDate">
@@ -64,7 +87,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/diary_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diary_date"
+        app:layout_constraintTop_toBottomOf="@+id/diary_date_box"
         android:text="내용을 입력하세요"
         style="@style/DiaryTextPlaceholder"
         android:background="@null"
