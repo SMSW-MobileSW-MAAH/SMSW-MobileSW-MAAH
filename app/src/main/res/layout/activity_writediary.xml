@@ -39,48 +39,44 @@
         android:id="@+id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diary_title"
+        app:layout_constraintBottom_toTopOf="@+id/diary_date_box"
         android:background="@color/green"
         android:layout_marginTop="12dp">
 
     </View>
 
-    <View
-        android:layout_width="127dp"
-        android:layout_height="36dp"
-        android:id="@+id/diary_date_box"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/diary_date_picker"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        android:background="@drawable/diary_date_picker"
+        android:id="@+id/diary_date_box"
+        android:paddingStart="18dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="18dp"
-        >
+        android:gravity="center_vertical">
 
-    </View>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_date_fill"
+            android:id="@+id/diary_date_icon"
+            android:layout_marginEnd="5dp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon_date_fill"
-        android:id="@+id/diary_date_icon"
-        app:layout_constraintStart_toStartOf="@id/diary_date_box"
-        app:layout_constraintTop_toTopOf="@id/diary_date_box"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="6dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="2024.00.00"
+            style="@style/DiaryDate" />
 
-    </ImageView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/diary_date_icon"
-        app:layout_constraintTop_toTopOf="@id/diary_date_box"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="7dp"
-        android:gravity="center"
-        android:text="2024.00.00"
-        style="@style/DiaryDate">
-
-    </TextView>
+    </LinearLayout>
 
     <EditText
         android:layout_width="wrap_content"
