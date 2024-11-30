@@ -63,6 +63,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="취소"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
                 android:background="@drawable/dialog_dismiss_button"
                 android:textColor="@color/black" />
 
@@ -72,6 +74,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="확인"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
                 android:background="@drawable/dialog_confirm_button"
                 android:textColor="@color/white" />
         </LinearLayout>
