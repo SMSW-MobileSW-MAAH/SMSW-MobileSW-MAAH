@@ -107,6 +107,12 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="editTitle">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="reviewPlaceHolder">
         <item name="android:fontFamily">@font/pretendardregular</item>
         <item name="android:textColor">@color/grayscale3</item>
