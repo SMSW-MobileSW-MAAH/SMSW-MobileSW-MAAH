@@ -20,7 +20,7 @@
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그인 해주세요."
+        android:text="로그인 해주세요"
         app:layout_constraintTop_toBottomOf="@+id/txt1"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="30sp"
