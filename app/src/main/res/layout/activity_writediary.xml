@@ -54,10 +54,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
         android:id="@+id/diary_date_box"
-        android:paddingStart="18dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="18dp"
-        android:paddingBottom="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="18dp"
         android:gravity="center_vertical">
@@ -72,8 +72,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/tv_diary_date"
             android:gravity="center"
             android:text="2024.00.00"
+            android:clickable="true"
+            android:focusable="true"
             style="@style/DiaryDate" />
 
     </LinearLayout>
