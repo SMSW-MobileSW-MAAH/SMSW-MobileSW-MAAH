@@ -1,11 +1,11 @@
 package smsw.maah.presentation.diary
 
 import android.os.Bundle
-import smsw.maah.databinding.ActivityDiaryBinding
+import smsw.maah.databinding.ActivityDiarydetailBinding
 import smsw.maah.util.base.BindingActivity
 
 class DiaryDetailActivity :
-    BindingActivity<ActivityDiaryBinding>({ ActivityDiaryBinding.inflate(it) }) {
+    BindingActivity<ActivityDiarydetailBinding>({ ActivityDiarydetailBinding.inflate(it) }) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
