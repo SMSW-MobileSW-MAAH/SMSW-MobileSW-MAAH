@@ -24,9 +24,6 @@ class WriteDiaryActivity :
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            // 로그 추가
-            println("Icon clicked: Attempting to show DatePickerDialog")
-
             // DatePickerDialog 생성
             DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
                 // 선택한 날짜를 TextView에 반영
