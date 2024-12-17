@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_view_background"
+    android:layout_marginTop="15dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_HospitalName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="병원이름"
+        style="@style/semiboldBody02"/>
+
+    <TextView
+        android:id="@+id/tv_Rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/semiboldBody02"
+        android:text="별점"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_Review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/semiboldBody02"
+        android:text="후기"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>
