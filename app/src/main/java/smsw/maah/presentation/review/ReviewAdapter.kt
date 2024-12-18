@@ -13,9 +13,8 @@ class ReviewAdapter(private val reviewList: List<Review>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(review: Review) {
-            binding.tvHospitalName.text = review.hospitalName
-            binding.tvRating.text = "별점: ${review.rating}"
-            binding.tvReview.text = review.comment
+            binding.tvHospitalName.text = "${review.hospitalName}"
+            binding.tvReview.text = "${review.comment.joinToString(", ")}"
         }
     }
 

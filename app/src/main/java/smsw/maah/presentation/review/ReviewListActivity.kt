@@ -20,9 +20,8 @@ class ReviewListActivity :
 
         //더미
         val reviewList = listOf(
-            Review("서울병원", 5, "좋은 병원입니다."),
-            Review("부산병원", 4, "친절했어요."),
-            Review("대전병원", 3, "보통이었습니다.")
+            Review(hospitalName = "효은병원", comment = listOf("병원 분위기가 편안함을 줘요")),
+            Review(hospitalName = "나뭉병원", comment = listOf("교통편이 편리해요", "진료 과정이 체계적이에요")),
         )
 
     // Adapter 설정
