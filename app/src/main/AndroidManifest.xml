@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -14,22 +16,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MAAH"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
-            android:name=".presentation.login.LoginActivity"
+            android:name=".presentation.login.LoginMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".presentation.diary.DiaryActivity" />
+        <activity android:name=".presentation.diary.DiaryEmptyActivity" />
         <activity android:name=".presentation.diary.WriteDiaryActivity" />
+        <activity android:name=".presentation.diary.DiaryDetailActivity" />
         <activity android:name=".presentation.review.ReviewListActivity" />
-        <activity android:name=".presentation.review.ReviewWriteActivity" />
         <activity android:name=".presentation.review.ReviewActivity" />
         <activity android:name=".presentation.login.SignUpActivity" />
+        <activity android:name=".presentation.review.ReviewSearchHospitalActivity" />
         <activity android:name=".presentation.diary.DiaryListActivity" />
-    </application>
+        <activity android:name=".presentation.review.ReviewWriteActivity" />
 
+    </application>
 </manifest>

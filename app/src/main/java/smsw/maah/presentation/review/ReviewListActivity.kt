@@ -17,7 +17,7 @@ class ReviewListActivity :
             clearFocus()         // 포커스를 제거하여 키보드 자동 표시 방지
         }
 
-        val recyclerView: RecyclerView = binding.recyclerView
+        val recyclerView: RecyclerView = binding.rvReviewList
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //더미
