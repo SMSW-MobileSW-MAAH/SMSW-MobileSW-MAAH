@@ -14,7 +14,7 @@ class ReviewAdapter(private val reviewList: List<Review>) :
 
         fun bind(review: Review) {
             binding.tvHospitalName.text = "${review.hospitalName}"
-            binding.tvReview.text = "${review.comment.joinToString(", ")}"
+            binding.tvReview.text = "${review.comment.joinToString("\n")}"
         }
     }
 
