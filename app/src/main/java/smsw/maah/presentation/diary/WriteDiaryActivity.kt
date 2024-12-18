@@ -1,28 +1,35 @@
 package smsw.maah.presentation.diary
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import android.text.InputFilter
 import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
 import smsw.maah.R
 import smsw.maah.databinding.ActivityWritediaryBinding
 import smsw.maah.presentation.dialog.ConfirmDialog
 import smsw.maah.util.base.BindingActivity
 import java.util.Calendar
 
+
 class WriteDiaryActivity :
     BindingActivity<ActivityWritediaryBinding>({ ActivityWritediaryBinding.inflate(it) }) {
 
     private val database = FirebaseDatabase.getInstance().reference // Realtime Database
+    private lateinit var auth: FirebaseAuth
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.diaryText.setPrivateImeOptions("defaultInputmode=korean")
+
+        auth = FirebaseAuth.getInstance()
+        val uid = auth.currentUser?.uid
 
         val diaryDateBox = binding.diaryDateBox
         val diaryDateText = binding.tvDiaryDate
@@ -72,7 +79,7 @@ class WriteDiaryActivity :
                     confirmButtonText = "그대로 저장할게요",
                     cancelButtonText = "다시 한번 확인할래요",
                     onConfirm = {
-                        saveDiaryToFirebase(title, date, content)
+                        saveDiaryToFirebase(title, date, content, uid!!)
                         Log.d("WriteDiaryActivity", "일기 저장됨")
                     },
                     onCancel = {
@@ -102,8 +109,9 @@ class WriteDiaryActivity :
         })
     }
 
-    private fun saveDiaryToFirebase(title: String, date: String, content: String) {
+    private fun saveDiaryToFirebase(title: String, date: String, content: String, uid : String) {
         val diaryData = hashMapOf(
+            "userId" to uid,
             "title" to title,
             "date" to date,
             "content" to content
@@ -113,10 +121,17 @@ class WriteDiaryActivity :
         databaseRef.setValue(diaryData)
             .addOnSuccessListener {
                 Log.d("WriteDiaryActivity", "Realtime Database에 일기 저장 성공!")
+                moveToDiaryList()
             }
             .addOnFailureListener { e ->
                 Log.e("WriteDiaryActivity", "Realtime Database 저장 실패: $e")
             }
+    }
+
+    private fun moveToDiaryList() {
+        val intent = Intent(this, DiaryListActivity::class.java) // DiaryListActivity로 이동
+        startActivity(intent)
+        finish() // 현재 액티비티 종료
     }
 
     private fun showCustomDialog(
