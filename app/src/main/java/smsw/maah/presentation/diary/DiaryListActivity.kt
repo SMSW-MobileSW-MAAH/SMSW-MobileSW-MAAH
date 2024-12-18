@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import smsw.maah.databinding.ActivityDiarylistBinding
-import smsw.maah.domain.model.DiaryList
 import smsw.maah.presentation.diary.adapter.DiaryListAdapter
 import smsw.maah.presentation.diary.viewmodel.DiarylistViewModel
 import smsw.maah.util.base.BindingActivity
@@ -23,7 +22,7 @@ class DiaryListActivity :
 
         initRecyclerViewAdapter() //recycler view 초기화
         observeDiaryList() //view model 데이터 관찰
-        viewModel.loadDiarys() //mock 데이터 로드
+        viewModel.loadDiaries() //mock 데이터 로드
     }
 
     private fun initRecyclerViewAdapter(){
