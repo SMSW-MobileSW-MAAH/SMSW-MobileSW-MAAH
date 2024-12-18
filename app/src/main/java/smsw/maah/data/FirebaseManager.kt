@@ -16,12 +16,14 @@ class FirebaseManager(private val activity: Activity) {
     private val currentUser = FirebaseAuth.getInstance().currentUser
 
     // 이미지 업로드 후 리뷰 데이터 저장
-    fun uploadImageAndSaveReview(imageUri: Uri?, reviewData: ReviewModel) {
+    fun uploadImageAndSaveReview(imageUri: Uri?, reviewData: ReviewModel, callback: (String?) -> Unit) {
         val userId = currentUser?.uid
         if (userId == null) {
             Toast.makeText(activity, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show()
+            callback(null)
             return
         }
+
         if (imageUri != null) {
             val imageRef = storageRef.child("reviews/$userId/${System.currentTimeMillis()}_review.jpg")
             val uploadTask = imageRef.putFile(imageUri)
@@ -30,25 +32,26 @@ class FirebaseManager(private val activity: Activity) {
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     val imageUrl = uri.toString()
                     val finalReviewData = reviewData.copy(imageUrl = imageUrl)
-                    saveReviewToDatabase(finalReviewData, userId)
+                    saveReviewToDatabase(finalReviewData, userId, callback)
                 }
             }.addOnFailureListener {
                 Toast.makeText(activity, "이미지 업로드 실패: ${it.message}", Toast.LENGTH_SHORT).show()
+                callback(null)
             }
         } else {
-            saveReviewToDatabase(reviewData, userId)
+            saveReviewToDatabase(reviewData, userId, callback)
         }
     }
 
-    // 데이터베이스에 리뷰 저장
-    private fun saveReviewToDatabase(reviewData: ReviewModel, userId: String) {
+    private fun saveReviewToDatabase(reviewData: ReviewModel, userId: String, callback: (String?) -> Unit) {
         val reviewRef = databaseRef.child("reviews").child(userId).push()
         reviewRef.setValue(reviewData)
             .addOnSuccessListener {
-                Toast.makeText(activity, "리뷰 저장 완료!", Toast.LENGTH_SHORT).show()
+                callback(reviewRef.key) // 리뷰 아이디 반환
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "리뷰 저장 실패: ${it.message}", Toast.LENGTH_SHORT).show()
+                callback(null)
             }
     }
 }

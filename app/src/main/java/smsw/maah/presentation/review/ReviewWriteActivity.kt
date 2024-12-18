@@ -34,15 +34,12 @@ class ReviewWriteActivity :
         }
 
         binding.btnSubmitReview.setOnClickListener {
-            saveReview()
-            val intent = Intent(this, ReviewActivity::class.java)
-            intent.putExtra("hospitalName", reviewData?.hospitalName ?: "정보 없음")
-            intent.putExtra("doctorName", reviewData?.doctorName ?: "정보 없음")
-            intent.putExtra("reviewChecklist", reviewData?.reviewChecklist?.toTypedArray() ?: arrayOf())
-            intent.putExtra("reviewText", reviewData?.reviewText ?: "정보 없음")
-            intent.putExtra("imageUrl", reviewData?.imageUrl ?: "")
-            startActivity(intent)
-            finish()
+            saveReview { reviewId ->
+                val intent = Intent(this, ReviewActivity::class.java)
+                intent.putExtra("reviewId", reviewId)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 
@@ -60,7 +57,7 @@ class ReviewWriteActivity :
         }
     }
 
-    private fun saveReview() {
+    private fun saveReview(callback: (String?) -> Unit) {
         val hospitalName = binding.tvHospitalNameWrite.text.toString()
         val doctorName = binding.etHospitalName.text.toString()
         val reviewText = binding.etReviewInput.text.toString()
@@ -74,7 +71,7 @@ class ReviewWriteActivity :
             }
         }
 
-        if (reviewText.isBlank()) { //hospitalName.isBlank() ||
+        if (reviewText.isBlank()) {
             Toast.makeText(this, "필수 항목을 입력해주세요.", Toast.LENGTH_SHORT).show()
             return
         }
@@ -86,7 +83,9 @@ class ReviewWriteActivity :
             reviewText = reviewText
         )
 
-        firebaseManager.uploadImageAndSaveReview(imageUri, reviewData!!)
+        firebaseManager.uploadImageAndSaveReview(imageUri, reviewData!!) { reviewId ->
+            callback(reviewId) // 리뷰 아이디를 콜백으로 반환
+        }
     }
 
 
