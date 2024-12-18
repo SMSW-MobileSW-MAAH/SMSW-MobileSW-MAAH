@@ -21,7 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".presentation.diary.DiaryActivity" />
+        <activity android:name=".presentation.diary.DiaryEmptyActivity" />
         <activity android:name=".presentation.diary.WriteDiaryActivity" />
+        <activity android:name=".presentation.diary.DiaryDetailActivity" />
         <activity android:name=".presentation.review.ReviewListActivity" />
         <activity android:name=".presentation.login.LoginActivity" />
         <activity android:name=".presentation.login.SignUpActivity" />
