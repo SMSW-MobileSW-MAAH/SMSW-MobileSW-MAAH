@@ -22,8 +22,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.diary.WriteDiaryActivity" />
+        <activity android:name=".presentation.review.ReviewListActivity" />
         <activity android:name=".presentation.login.LoginActivity" />
         <activity android:name=".presentation.login.SignUpActivity" />
+        <activity android:name=".presentation.diary.DiaryListActivity" />
+
 
     </application>
 
