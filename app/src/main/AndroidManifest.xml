@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -30,8 +33,9 @@
         <activity android:name=".presentation.diary.WriteDiaryActivity" />
         <activity android:name=".presentation.diary.DiaryDetailActivity" />
         <activity android:name=".presentation.review.ReviewListActivity" />
-        <activity android:name=".presentation.login.LoginActivity" />
+        <activity android:name=".presentation.review.ReviewActivity" />
         <activity android:name=".presentation.login.SignUpActivity" />
+        <activity android:name=".presentation.login.LoginActivity" />
         <activity android:name=".presentation.review.ReviewSearchHospitalActivity" />
         <activity android:name=".presentation.diary.DiaryListActivity" />
         <activity android:name=".presentation.review.ReviewWriteActivity" />

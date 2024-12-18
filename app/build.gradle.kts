@@ -51,6 +51,9 @@ android {
 }
 
 dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:32.0.0"))
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-database")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation ("com.google.firebase:firebase-database:20.0.5") // Realtime Database
     implementation ("com.google.firebase:firebase-firestore:24.7.1") // Firestore
