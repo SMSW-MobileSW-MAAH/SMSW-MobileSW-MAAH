@@ -18,7 +18,7 @@ class DiaryListViewHolder (
             vDiaryList.visibility = if(isSelected) View.VISIBLE else View.INVISIBLE
 
             root.setOnClickListener {
-                onClick(data.title)
+                onClick(data.id)
             }
         }
     }

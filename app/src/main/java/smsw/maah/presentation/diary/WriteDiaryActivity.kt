@@ -110,14 +110,16 @@ class WriteDiaryActivity :
     }
 
     private fun saveDiaryToFirebase(title: String, date: String, content: String, uid : String) {
+        val databaseRef = database.child("diaries").push() // 고유 키 생성
+        val diaryId = databaseRef.key ?: return
         val diaryData = hashMapOf(
+            "diaryId" to diaryId,
             "userId" to uid,
             "title" to title,
             "date" to date,
             "content" to content
         )
 
-        val databaseRef = database.child("diaries").push() // 고유 키 생성
         databaseRef.setValue(diaryData)
             .addOnSuccessListener {
                 Log.d("WriteDiaryActivity", "Realtime Database에 일기 저장 성공!")

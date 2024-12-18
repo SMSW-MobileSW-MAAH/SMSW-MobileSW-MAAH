@@ -162,4 +162,10 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="mediumBody03">
+        <item name="android:fontFamily">@font/pretendardmedium</item>
+        <item name="android:textColor">@color/grayscale8</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

@@ -1,6 +1,8 @@
 package smsw.maah.presentation.diary
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,11 +25,20 @@ class DiaryListActivity :
         initRecyclerViewAdapter() //recycler view 초기화
         observeDiaryList() //view model 데이터 관찰
         viewModel.loadDiaries() //mock 데이터 로드
+
+        binding.floatingBtn.setOnClickListener{ //플로팅 버튼 클릭 시 WriteDiaryActivity로 이동
+            val intent = Intent(this, WriteDiaryActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun initRecyclerViewAdapter(){
-        adapter = DiaryListAdapter { selectedDiaryTitle ->
-            Toast.makeText(this, "선택된 일기: $selectedDiaryTitle", Toast.LENGTH_SHORT).show()
+        adapter = DiaryListAdapter { diaryId ->
+            Log.d("DiaryListActivity", "전달된 Diary ID: $diaryId")
+            val intent = Intent(this, DiaryDetailActivity::class.java)
+            intent.putExtra("DIARY_ID", diaryId) // 선택한 일기의 ID 전달
+            startActivity(intent)
         }
         binding.rvDiaryList.adapter = adapter //recycler view에 adapter 연결
         binding.rvDiaryList.layoutManager = LinearLayoutManager(this) //레이아웃 매니저 설정

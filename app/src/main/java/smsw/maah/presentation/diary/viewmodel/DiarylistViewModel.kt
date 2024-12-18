@@ -29,7 +29,7 @@ class DiarylistViewModel  : ViewModel(){
                 for (diarySnapshot in snapshot.children) {
                     val diary = diarySnapshot.getValue(DiaryList::class.java)
                     if (diary != null) {
-                        diaryItems.add(diary)
+                        diaryItems.add(diary.copy(id = diarySnapshot.key ?: ""))
                     }
                 }
                 _diaryList.value = diaryItems // LiveData 업데이트
