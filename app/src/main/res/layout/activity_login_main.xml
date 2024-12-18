@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/btn_member_yes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_question" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/btn_member_no"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
