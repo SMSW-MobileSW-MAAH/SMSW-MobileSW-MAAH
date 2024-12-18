@@ -119,6 +119,12 @@
         <item name="android:textSize">13sp</item>
     </style>
 
+    <style name="reviewText">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/grayscale8</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <style name="navigationBar">
         <item name="android:fontFamily">@font/pretendardregular</item>
         <item name="android:textColor">@color/grayscale6</item>
