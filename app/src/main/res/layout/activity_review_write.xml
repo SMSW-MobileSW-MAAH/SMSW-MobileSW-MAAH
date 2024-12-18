@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_hospital_name_write" />
 
         <EditText
-            android:id="@+id/et_doctor_name"
+            android:id="@+id/et_hospital_name"
             style="@style/reviewPlaceHolder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_marginTop="18dp"
             android:text="진료 인증 사진 (필수)"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_doctor_name" />
+            app:layout_constraintTop_toBottomOf="@id/et_hospital_name" />
 
         <ImageView
             android:id="@+id/iv_upload_photo"
