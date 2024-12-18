@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_review_title"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="리뷰 작성하기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_border"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_title" />
+
+        <TextView
+            android:id="@+id/tv_hospital_name"
+            style="@style/semiboldBody02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="30dp"
+            android:text="병원 이름 (필수)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_border" />
+
+        <TextView
+            android:id="@+id/tv_hospital_name_write"
+            style="@style/reviewPlaceHolder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/radius_8_green"
+            android:hint="병원 이름을 작성해주세요"
+            android:paddingVertical="10dp"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hospital_name" />
+
+        <TextView
+            android:id="@+id/tv_doctor_name"
+            style="@style/semiboldBody02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:text="선생님 성함 작성하기 (선택)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hospital_name_write" />
+
+        <EditText
+            android:id="@+id/et_hospital_name"
+            style="@style/reviewPlaceHolder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/radius_8_green"
+            android:hint="선생님 성함을 작성해주세요"
+            android:paddingVertical="10dp"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_doctor_name" />
+
+        <TextView
+            android:id="@+id/tv_upload_photo"
+            style="@style/semiboldBody02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="18dp"
+            android:text="진료 인증 사진 (필수)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_hospital_name" />
+
+        <ImageView
+            android:id="@+id/iv_upload_photo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background_radius_8"
+            android:contentDescription="진료 인증 사진을 올려주세요"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_camera"
+            app:layout_constraintDimensionRatio="358:223"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_upload_photo" />
+
+        <TextView
+            android:id="@+id/tv_review_photo_description"
+            style="@style/reviewPlaceHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="영수증 사진 또는 진료를 증빙할 수 있는 사진을 올려주세요."
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_upload_photo" />
+
+        <TextView
+            android:id="@+id/tv_review_visitor"
+            style="@style/semiboldBody02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="방문자 리뷰"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_photo_description" />
+
+        <LinearLayout
+            android:id="@+id/ll_review_checklist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_visitor">
+
+            <CheckBox
+                style="@style/mediumBody02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="병원 분위기가 편안함을 줘요." />
+
+            <CheckBox
+                style="@style/mediumBody02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="선생님이 상담을 잘 해주세요." />
+
+            <CheckBox
+                style="@style/mediumBody02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="진료 과정이 체계적이에요." />
+
+            <CheckBox
+                style="@style/mediumBody02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="교통편이 편리해요." />
+
+            <CheckBox
+                style="@style/mediumBody02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="치료가 많은 도움이 됐어요." />
+
+            <CheckBox
+                style="@style/mediumBody02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전체적인 서비스가 친절해요." />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_review_input"
+            style="@style/semiboldBody01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="리뷰 작성 (필수)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_review_checklist" />
+
+        <EditText
+            android:id="@+id/et_review_input"
+            style="@style/reviewPlaceHolder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background_radius_8"
+            android:gravity="top"
+            android:hint="최소 50자 이상 작성해주세요."
+            android:maxLength="100"
+            android:paddingStart="14dp"
+            android:paddingTop="24dp"
+            app:layout_constraintDimensionRatio="358:223"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_input" />
+
+        <TextView
+            android:id="@+id/btn_submit_review"
+            style="@style/semiboldBody01"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background_radius_8"
+            android:backgroundTint="@color/green"
+            android:gravity="center"
+            android:text="리뷰 저장"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="359:50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_review_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
