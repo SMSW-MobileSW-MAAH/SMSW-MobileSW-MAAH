@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import smsw.maah.MainActivity
 import smsw.maah.databinding.ActivityLoginBinding
+import smsw.maah.presentation.diary.DiaryActivity
 import smsw.maah.util.base.BindingActivity
 
 class LoginActivity : BindingActivity<ActivityLoginBinding>({ ActivityLoginBinding.inflate(it) }) {
@@ -34,7 +35,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({ ActivityLoginBindi
                             Toast.LENGTH_SHORT
                         ).show()
 
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, DiaryActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {

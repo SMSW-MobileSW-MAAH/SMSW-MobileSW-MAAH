@@ -15,15 +15,16 @@
         android:theme="@style/Theme.MAAH"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
             android:name=".presentation.login.LoginMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".presentation.diary.DiaryActivity" />
         <activity android:name=".presentation.diary.DiaryEmptyActivity" />
         <activity android:name=".presentation.diary.WriteDiaryActivity" />
@@ -35,7 +36,5 @@
         <activity android:name=".presentation.diary.DiaryListActivity" />
         <activity android:name=".presentation.review.ReviewWriteActivity" />
 
-
     </application>
-
 </manifest>
