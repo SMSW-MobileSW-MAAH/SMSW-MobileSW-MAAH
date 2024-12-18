@@ -1,113 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tv_review_title"
-        style="@style/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="리뷰 보기"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_border"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/green"
-        app:layout_constraintTop_toBottomOf="@id/tv_review_title" />
-
-    <TextView
-        android:id="@+id/tv_hospital_name"
-        style="@style/semiboldBody01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:text="병원 이름"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_border" />
-
-    <TextView
-        android:id="@+id/tv_hospital"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/background_radius_8"
-        android:paddingVertical="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_hospital_name" />
+        android:background="@color/white">
 
-    <TextView
-        android:id="@+id/tv_doctor_name"
-        style="@style/semiboldBody01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:text="선생님 성함"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_hospital" />
+        <TextView
+            android:id="@+id/tv_review_title"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="리뷰 보기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_doctor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/background_radius_8"
-        android:paddingVertical="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_doctor_name" />
+        <TextView
+            android:id="@+id/tv_border"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_title" />
 
-    <TextView
-        android:id="@+id/tv_visitor_review"
-        style="@style/semiboldBody01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="방문자 리뷰"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_doctor" />
+        <TextView
+            android:id="@+id/tv_hospital_name"
+            style="@style/semiboldBody01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:text="병원 이름"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_border" />
 
-    <TextView
-        android:id="@+id/tv_example"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background_radius_40"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
-        android:text="병원분위기가 편안함을 줘요"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_visitor_review" />
+        <TextView
+            android:id="@+id/tv_hospital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/background_radius_8"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_hospital_name" />
 
-    <TextView
-        android:id="@+id/tv_review"
-        style="@style/semiboldBody01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="후기"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_example" />
+        <TextView
+            android:id="@+id/tv_doctor_name"
+            style="@style/semiboldBody01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:text="선생님 성함"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hospital" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/background_radius_8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_review" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/background_radius_8"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_doctor_name" />
+
+        <TextView
+            android:id="@+id/tv_visitor_review"
+            style="@style/semiboldBody01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="방문자 리뷰"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_doctor" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_checklist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_visitor_review"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_review_detail"/>
+
+        <TextView
+            android:id="@+id/tv_review"
+            style="@style/semiboldBody01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="후기"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_checklist" />
+
+        <TextView
+            android:id="@+id/tv_review_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/background_radius_8"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_review" />
+
+        <TextView
+            android:id="@+id/tv_image"
+            style="@style/semiboldBody01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="진료 인증 사진"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_review_text" />
+
+        <ImageView
+            android:id="@+id/iv_upload_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon_applogo"
+            app:layout_constraintTop_toBottomOf="@id/tv_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
