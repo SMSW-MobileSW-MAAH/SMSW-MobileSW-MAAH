@@ -1,34 +1,45 @@
 package smsw.maah.presentation.review
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import smsw.maah.databinding.ActivityReviewlistBinding
+import smsw.maah.presentation.review.adapter.ReviewListAdapter
+import smsw.maah.presentation.review.viewmodel.ReviewListViewModel
 import smsw.maah.util.base.BindingActivity
+import androidx.activity.viewModels
 
 class ReviewListActivity :
-    BindingActivity<ActivityReviewlistBinding>({ ActivityReviewlistBinding.inflate(it) }){
+    BindingActivity<ActivityReviewlistBinding>({
+        ActivityReviewlistBinding.inflate(it)
+    }) {
+
+    private val viewModel by viewModels<ReviewListViewModel>() //view model 연결
+    private lateinit var adapter: ReviewListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.searchHospital.apply {
-            isIconified = false  // SearchView를 확장된 상태로 설정
-            clearFocus()         // 포커스를 제거하여 키보드 자동 표시 방지
+
+        initRecyclerViewAdapter() //recycler view 초기화
+        observeReviewList() //view model 데이터 관찰
+        viewModel.loadReviews() //mock 데이터 로드
+
+
+    }
+
+    private fun initRecyclerViewAdapter(){
+        adapter = ReviewListAdapter { selectedHospitalName ->
+            Toast.makeText(this, "선택된 병원: $selectedHospitalName", Toast.LENGTH_SHORT).show()
         }
 
-        val recyclerView: RecyclerView = binding.rvReviewList
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.rvReviewList.adapter = adapter //recycler view에 adapter 연결
+        binding.rvReviewList.layoutManager = LinearLayoutManager(this) //레이아웃 매니저 설정
+    }
 
-        //더미
-        val reviewList = listOf(
-            Review(hospitalName = "효은병원", comment = listOf("병원 분위기가 편안함을 줘요")),
-            Review(hospitalName = "나뭉병원", comment = listOf("교통편이 편리해요", "진료 과정이 체계적이에요")),
-        )
-
-    // Adapter 설정
-        val adapter = ReviewAdapter(reviewList)
-        recyclerView.adapter = adapter
-
+    private fun observeReviewList(){
+        viewModel.reviewList.observe(this) { reviewList ->
+            //recycler view 데이터 갱신
+            adapter.submitList(reviewList)
+        }
     }
 }

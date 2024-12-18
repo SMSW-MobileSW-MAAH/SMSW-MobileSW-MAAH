@@ -1,6 +1,6 @@
-package smsw.maah.presentation.review
+package smsw.maah.domain.model
 
-data class Review(
+data class ReviewList(
     val hospitalName: String, // 병원 이름
     val comment: List<String> // 방문자 리뷰
 )
