@@ -143,6 +143,12 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="regularBody02">
+        <item name="android:fontFamily">@font/pretendardregular</item>
+        <item name="android:textColor">@color/grayscale5</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <!--medium-->
     <style name="mediumBody01">
         <item name="android:fontFamily">@font/pretendardmedium</item>
