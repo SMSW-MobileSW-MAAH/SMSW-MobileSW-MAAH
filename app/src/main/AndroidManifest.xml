@@ -35,6 +35,7 @@
         <activity android:name=".presentation.review.ReviewListActivity" />
         <activity android:name=".presentation.review.ReviewActivity" />
         <activity android:name=".presentation.login.SignUpActivity" />
+        <activity android:name=".presentation.login.LoginActivity" />
         <activity android:name=".presentation.review.ReviewSearchHospitalActivity" />
         <activity android:name=".presentation.diary.DiaryListActivity" />
         <activity android:name=".presentation.review.ReviewWriteActivity" />

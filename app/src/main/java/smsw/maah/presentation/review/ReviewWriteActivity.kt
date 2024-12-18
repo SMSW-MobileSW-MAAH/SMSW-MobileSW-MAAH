@@ -31,20 +31,16 @@ class ReviewWriteActivity :
         )
         firebaseManager = FirebaseManager(this)
 
+        binding.tvHospitalNameWrite.setOnClickListener{
+            val intent = Intent(this, ReviewSearchHospitalActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         binding.ivUploadPhoto.setOnClickListener {
             openImagePicker()
         }
 
-        binding.btnSubmitReview.setOnClickListener {
-            saveReview { reviewId ->
-                val intent = Intent(this, ReviewActivity::class.java)
-                intent.putExtra("reviewId", reviewId)
-                startActivity(intent)
-                finish()
-            }
-        }
-
-        val hospitalName = intent.getStringExtra("hospital_name") ?: "병원 이름 없음"
+        val hospitalName = intent.getStringExtra("hospital_name") ?: "병원 이름을 검색해주세요."
 
         binding.tvHospitalNameWrite.text = hospitalName
 
@@ -54,6 +50,15 @@ class ReviewWriteActivity :
                 getColor(R.color.grayscale8)
 
             )
+        }
+
+        binding.btnSubmitReview.setOnClickListener {
+            saveReview { reviewId ->
+                val intent = Intent(this, ReviewActivity::class.java)
+                intent.putExtra("reviewId", reviewId)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 
