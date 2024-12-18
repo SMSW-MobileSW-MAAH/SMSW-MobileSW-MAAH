@@ -1,7 +1,6 @@
 package smsw.maah.presentation.review
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,33 +10,32 @@ import smsw.maah.presentation.review.viewmodel.ReviewSearchHospitalViewModel
 import smsw.maah.util.base.BindingActivity
 
 class ReviewSearchHospitalActivity :
-    BindingActivity<ActivityReviewSearchHospitalBinding>({
-        ActivityReviewSearchHospitalBinding.inflate(it)
-    }) {
+    BindingActivity<ActivityReviewSearchHospitalBinding>(ActivityReviewSearchHospitalBinding::inflate) {
 
-    private val viewModel by viewModels<ReviewSearchHospitalViewModel>() // ViewModel 연결
-    private lateinit var adapter: ReviewSearchHospitalAdapter // Adapter 선언
+    private val viewModel by viewModels<ReviewSearchHospitalViewModel>()
+    private lateinit var adapter: ReviewSearchHospitalAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initRecyclerViewAdapter() // RecyclerView 초기화
-        observeHospitalList() // ViewModel 데이터 관찰
-        viewModel.loadHospitals() // Mock 데이터 로드
+        initRecyclerViewAdapter()
+        observeHospitalList()
+        viewModel.loadHospitalsFromServer() // 서버 데이터 호출
+
     }
 
     private fun initRecyclerViewAdapter() {
         adapter = ReviewSearchHospitalAdapter { selectedHospitalName ->
             Toast.makeText(this, "선택된 병원: $selectedHospitalName", Toast.LENGTH_SHORT).show()
         }
-        binding.rvReviewSearchHospital.adapter = adapter // RecyclerView에 Adapter 연결
-        binding.rvReviewSearchHospital.layoutManager = LinearLayoutManager(this) // 레이아웃 매니저 설정
+        binding.rvReviewSearchHospital.adapter = adapter
+        binding.rvReviewSearchHospital.layoutManager = LinearLayoutManager(this)
+
     }
 
     private fun observeHospitalList() {
         viewModel.hospitalList.observe(this) { hospitalList ->
-            // RecyclerView 데이터 갱신
-            adapter.submitList(hospitalList)
+            adapter.submitList(hospitalList) // RecyclerView 데이터 갱신
         }
     }
 }
