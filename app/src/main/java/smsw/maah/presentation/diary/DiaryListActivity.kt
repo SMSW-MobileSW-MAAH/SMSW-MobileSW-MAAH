@@ -1,31 +1,43 @@
 package smsw.maah.presentation.diary
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import smsw.maah.databinding.ActivityDiarylistBinding
-import smsw.maah.presentation.review.ReviewAdapter
+import smsw.maah.domain.model.DiaryList
+import smsw.maah.presentation.diary.adapter.DiaryListAdapter
+import smsw.maah.presentation.diary.viewmodel.DiarylistViewModel
 import smsw.maah.util.base.BindingActivity
 
 class DiaryListActivity :
-    BindingActivity<ActivityDiarylistBinding>({ ActivityDiarylistBinding.inflate(it) }){
-    private lateinit var diaryAdapter: DiaryAdapter
+    BindingActivity<ActivityDiarylistBinding>({
+        ActivityDiarylistBinding.inflate(it)
+    }) {
+
+    private val viewModel by viewModels<DiarylistViewModel>() //view model 연결
+    private lateinit var  adapter : DiaryListAdapter //adapter 선언
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDiarylistBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val diaryList = listOf(
-            Diary(title = "나뭉이 일기", date = "2024-12-18"),
-            Diary(title = "효은이 일기", date = "2024-12-18"),
-            Diary(title = "즈비 일기", date = "2024-12-18")
-        )
+        initRecyclerViewAdapter() //recycler view 초기화
+        observeDiaryList() //view model 데이터 관찰
+        viewModel.loadDiarys() //mock 데이터 로드
+    }
 
-        diaryAdapter = DiaryAdapter(diaryList)
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@DiaryListActivity)
-            adapter = diaryAdapter
+    private fun initRecyclerViewAdapter(){
+        adapter = DiaryListAdapter { selectedDiaryTitle ->
+            Toast.makeText(this, "선택된 일기: $selectedDiaryTitle", Toast.LENGTH_SHORT).show()
+        }
+        binding.rvDiaryList.adapter = adapter //recycler view에 adapter 연결
+        binding.rvDiaryList.layoutManager = LinearLayoutManager(this) //레이아웃 매니저 설정
+    }
+
+    private fun observeDiaryList(){
+        viewModel.diaryList.observe(this) { diaryList ->
+            //recycler view 데이터 갱신
+            adapter.submitList(diaryList)
         }
     }
 
