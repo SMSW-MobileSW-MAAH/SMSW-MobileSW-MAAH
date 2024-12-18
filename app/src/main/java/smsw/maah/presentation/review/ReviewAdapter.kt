@@ -8,7 +8,6 @@ import smsw.maah.databinding.ReviewListItemBinding
 class ReviewAdapter(private val reviewList: List<Review>) :
     RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
 
-    // ViewHolder 클래스에 View Binding 추가
     inner class ReviewViewHolder(private val binding: ReviewListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

@@ -27,13 +27,14 @@
 
     <EditText
         android:id="@+id/et_hospital_name"
-        style="@style/reviewPlaceHolder"
+        style="@style/reviewText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/radius_8_green"
         android:hint="병원 이름을 검색해주세요"
+        android:textColorHint="@color/grayscale3"
         android:paddingVertical="10dp"
         android:paddingStart="10dp"
         app:layout_constraintBottom_toTopOf="@id/rv_review_search_hospital"
