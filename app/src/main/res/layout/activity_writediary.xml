@@ -11,6 +11,7 @@
         android:id="@+id/confirm_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="완료"
@@ -54,20 +55,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
         android:id="@+id/diary_date_box"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="18dp"
+        android:paddingEnd="13dp"
         android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_date_fill"
-            android:id="@+id/diary_date_icon"
-            android:layout_marginEnd="5dp" />
+            android:id="@+id/diary_date_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
