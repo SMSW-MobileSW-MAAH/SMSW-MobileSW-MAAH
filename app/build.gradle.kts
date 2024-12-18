@@ -52,6 +52,8 @@ android {
 
 dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation ("com.google.firebase:firebase-database:20.0.5") // Realtime Database
+    implementation ("com.google.firebase:firebase-firestore:24.7.1") // Firestore
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -60,6 +62,7 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
