@@ -9,7 +9,9 @@ import kotlinx.coroutines.launch
 import smsw.maah.data.ServicePool
 import smsw.maah.domain.model.ReviewSearchHospital
 
+
 class ReviewSearchHospitalViewModel : ViewModel() {
+    private val _originalHospitalList = mutableListOf<ReviewSearchHospital>()
     private val _hospitalList = MutableLiveData<List<ReviewSearchHospital>>()
     val hospitalList: LiveData<List<ReviewSearchHospital>> get() = _hospitalList
 
@@ -25,10 +27,21 @@ class ReviewSearchHospitalViewModel : ViewModel() {
                     )
                 }
 
-                _hospitalList.value = mappedList
-
+                _originalHospitalList.clear()
+                _originalHospitalList.addAll(mappedList)
+                _hospitalList.value = emptyList()
             } catch (e: Exception) {
                 Log.e("ViewModel", "에러 발생: ${e.message}", e)
+            }
+        }
+    }
+
+    fun filterHospitals(query: String) {
+        if (query.isEmpty()) {
+            _hospitalList.value = emptyList()
+        } else {
+            _hospitalList.value = _originalHospitalList.filter {
+                it.name.contains(query, ignoreCase = true)
             }
         }
     }
