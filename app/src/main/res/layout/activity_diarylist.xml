@@ -3,14 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:id="@+id/diary_detail_view"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_detail_title"
-        android:text="일기 제목"
+        android:id="@+id/tv_diary_main"
+        android:text="일기 보기"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,39 +23,34 @@
         android:layout_height="1dp"
         android:id="@+id/divider"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_diary_main"
         android:background="@color/green"
         android:layout_marginTop="15dp">
 
     </View>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/floating_btn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        android:id="@+id/tv_detail_date"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:text="작성 날짜"
-        style="@style/semiboldBody03">
-
-    </TextView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_detail_text"
-        style="@style/mediumBody01"
-        android:text="일기 본문"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail_date"
-        android:background="@drawable/background_radius_8"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp">
-
-    </TextView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/green"
+        android:text="+ 일기 작성하기"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="@color/white"
+        style="@style/semiboldBody01"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
