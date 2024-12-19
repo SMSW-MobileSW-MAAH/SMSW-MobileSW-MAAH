@@ -90,7 +90,7 @@ class ReviewWriteActivity :
             }
         }
 
-        if (reviewText.isBlank()) {
+        if (hospitalName.isBlank() || reviewText.isBlank()) {
             Toast.makeText(this, "필수 항목을 입력해주세요.", Toast.LENGTH_SHORT).show()
             return
         }
