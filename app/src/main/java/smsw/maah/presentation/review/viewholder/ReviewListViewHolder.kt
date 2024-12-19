@@ -18,7 +18,7 @@ class ReviewListViewHolder(
 
 
             root.setOnClickListener {
-                onClick(data.hospitalName)
+                onClick(data.reviewId)
             }
         }
     }
