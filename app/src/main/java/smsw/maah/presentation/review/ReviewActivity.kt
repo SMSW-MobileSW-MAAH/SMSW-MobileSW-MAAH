@@ -22,6 +22,7 @@ class ReviewActivity :
         super.onCreate(savedInstanceState)
 
         val reviewId = intent.getStringExtra("reviewId")
+        Log.d("ReviewActivity", "Review ID received: $reviewId")
         if (!reviewId.isNullOrEmpty()) {
             fetchReviewFromDatabase(reviewId)
         } else {
@@ -31,22 +32,26 @@ class ReviewActivity :
     }
 
     private fun fetchReviewFromDatabase(reviewId: String) {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        if (userId == null) {
-            Toast.makeText(this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show()
-            finish()
-            return
-        }
+        val reviewsRef = FirebaseDatabase.getInstance().reference.child("reviews")
 
-        val reviewRef = FirebaseDatabase.getInstance().reference
-            .child("reviews")
-            .child(userId)
-            .child(reviewId)
+        reviewsRef.get().addOnSuccessListener { userSnapshot ->
+            var foundReviewData: ReviewModel? = null
 
-        reviewRef.get().addOnSuccessListener { snapshot ->
-            val reviewData = snapshot.getValue(ReviewModel::class.java)
-            if (reviewData != null) {
-                displayReviewData(reviewData)
+            // 모든 userId를 순회
+            for (userSnapshotItem in userSnapshot.children) {
+                val reviewSnapshot = userSnapshotItem.child(reviewId)
+
+                if (reviewSnapshot.exists()) {
+                    val reviewData = reviewSnapshot.getValue(ReviewModel::class.java)
+                    if (reviewData != null) {
+                        foundReviewData = reviewData
+                        break
+                    }
+                }
+            }
+
+            if (foundReviewData != null) {
+                displayReviewData(foundReviewData)
             } else {
                 Toast.makeText(this, "리뷰 데이터를 가져올 수 없습니다.", Toast.LENGTH_SHORT).show()
                 finish()

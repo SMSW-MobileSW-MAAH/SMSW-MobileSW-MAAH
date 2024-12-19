@@ -1,6 +1,9 @@
 package smsw.maah.presentation.review
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import smsw.maah.databinding.ActivityReviewlistBinding
@@ -24,22 +27,43 @@ class ReviewListActivity :
         observeReviewList() //view model 데이터 관찰
         viewModel.loadReviews() //mock 데이터 로드
 
+        binding.searchHospital.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let{ filterReviews(it) }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let{ filterReviews(it) }
+                return false
+            }
+        })
 
     }
 
     private fun initRecyclerViewAdapter(){
-        adapter = ReviewListAdapter { selectedHospitalName ->
-            Toast.makeText(this, "선택된 병원: $selectedHospitalName", Toast.LENGTH_SHORT).show()
+        adapter = ReviewListAdapter { reviewId ->
+            val intent = Intent(this, ReviewActivity::class.java)
+            Log.d("ReviewListActivity", "Review ID being passed: $reviewId")
+            intent.putExtra("reviewId", reviewId)
+            startActivity(intent)
         }
 
-        binding.rvReviewList.adapter = adapter //recycler view에 adapter 연결
-        binding.rvReviewList.layoutManager = LinearLayoutManager(this) //레이아웃 매니저 설정
+        binding.rvReviewList.adapter = adapter
+        binding.rvReviewList.layoutManager = LinearLayoutManager(this)
     }
 
     private fun observeReviewList(){
         viewModel.reviewList.observe(this) { reviewList ->
             //recycler view 데이터 갱신
             adapter.submitList(reviewList)
+        }
+    }
+
+    private fun filterReviews(query: String) {
+        viewModel.reviewList.value?.let { reviewList ->
+            val filteredList = reviewList.filter { it.hospitalName.contains(query, ignoreCase = true) }
+            adapter.submitList(filteredList)
         }
     }
 }

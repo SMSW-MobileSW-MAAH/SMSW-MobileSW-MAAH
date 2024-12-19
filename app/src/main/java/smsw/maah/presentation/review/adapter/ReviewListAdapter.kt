@@ -15,27 +15,17 @@ import smsw.maah.presentation.review.viewholder.ReviewSearchHospitalViewHolder
 import smsw.maah.util.view.ItemDiffCallback
 
 class ReviewListAdapter(
-    private val onClick : (String) -> Unit
-) : ListAdapter<ReviewList, ReviewListViewHolder>(DiffUtil){
+    private val onClick: (String) -> Unit
+) : ListAdapter<ReviewList, ReviewListViewHolder>(DiffUtil) {
 
-    private var selectedPosition : Int = RecyclerView.NO_POSITION
+    private var selectedPosition: Int = RecyclerView.NO_POSITION
 
-    override fun onCreateViewHolder(parent : ViewGroup, viewType: Int) : ReviewListViewHolder {
-        val binding = ItemReviewListBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
-
-        return ReviewListViewHolder(binding) { selectedHosName ->
-            val previousPosition = selectedPosition
-
-            selectedPosition = currentList.indexOfFirst { it.hospitalName == selectedHosName }
-
-            notifyItemChanged(previousPosition)
-            notifyItemChanged(selectedPosition)
-
-            onClick(selectedHosName)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewListViewHolder {
+        val binding = ItemReviewListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ReviewListViewHolder(binding) { selectedReviewId ->
+            val position = currentList.indexOfFirst { it.reviewId == selectedReviewId }  // reviewId로 선택된 아이템 찾기
+            val reviewId = getItem(position).reviewId
+            onClick(reviewId)
         }
     }
 
@@ -46,8 +36,9 @@ class ReviewListAdapter(
 
     companion object {
         private val DiffUtil = ItemDiffCallback<ReviewList>(
-            onItemsTheSame = { old, new -> old.hospitalName == new.hospitalName },
+            onItemsTheSame = { old, new -> old.hospitalName == new.hospitalName && old.reviewId == new.reviewId },
             onContentsTheSame = { old, new -> old == new }
         )
     }
 }
+
